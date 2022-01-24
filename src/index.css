@@ -1,0 +1,63 @@
+
+.root{
+    font-family: Roboto;
+}
+.AppHeader {
+    display: flex;
+    align-items: center;   
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0em;
+    justify-content: center;
+    margin-block: 30px;
+
+}
+
+.App-selectors {
+    display: flex;
+    justify-content: center; 
+    text-align: center;  
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 23px;
+    letter-spacing: 0em;
+    text-align: right;
+    margin-block: 50px;
+ 
+}
+
+.App-inputs {
+    display: flex;
+    justify-content: right; 
+}
+
+.App-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.AppText {
+    align-items: center;  
+    text-align: right;
+    justify-content: center;
+    margin-right: 5px;
+    font-size: 20px;
+    
+
+
+}
+.AppText2 {
+    align-items: center;  
+    text-align: center;
+    justify-content: center;
+    vertical-align: middle;
+    margin-block: 25px;
+    max-height: 35px;
+
+}
