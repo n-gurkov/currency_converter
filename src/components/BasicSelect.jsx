@@ -4,23 +4,35 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import '../index.css'
 
+//import { makeStyles } from '@mui/styles';
+
+/* const useStyles = makeStyles ({
+  appInputs: {
+    borderRadius: 0,
+     height: 35,
+    width: 150,
+    border: 1, 
+    },
+});  */
 export default function BasicSelect() {
+  //const classes = useStyles();
   const [age, setAge] = React.useState('');
-
+  
   const handleChange = (event) => {
     setAge(event.target.value);
   };
 
   return (
-    <Box sx={{  }}>
-      <FormControl fullWidth>
+    <Box >
+      <FormControl >
         <InputLabel id="demo-simple-select-label"></InputLabel>
         <Select
-          
-          id="demo-simple-select"
+          className="App-inputs"
+        
           value={age}
-          label=""
+          
           onChange={handleChange}
         >
           <MenuItem value={10}>Ten</MenuItem>
