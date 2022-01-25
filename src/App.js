@@ -1,21 +1,32 @@
-import React, {useState} from 'react';
-import TextField from '@mui/material/TextField';
+import React, {useEffect, useState} from 'react';
 import Container from '@mui/material/Container';
 import BasicSelect from './components/BasicSelect';
 import BasicTextFields from './components/BasicTextFields'
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import axios from 'axios';
 import './index.css'
 import '@fontsource/roboto/700.css';
 import '@fontsource/roboto/400.css';
 
 
 
+
 function App() {
 
   const [value, setValue] = useState('Txt')
-  
+  const [allCoins, setAllCoins] = useState([]);
+  export default allCoins;
+
+  useEffect(() => {
+    axios.get('https://api.currencyfreaks.com/latest?apikey=f69289ef015844e9b512d536114acc62').then(({data}) =>{
+      const coins = data.rates;
+      console.log(coins);
+      setAllCoins(coins);
+    })
+  }, []);
+
 
   return (
   
@@ -45,7 +56,7 @@ function App() {
             </Grid>
 
             <Grid item xs={0.5}>
-              <div className="AppText2">в</div>
+              <div className="AppText2">в {allCoins[1]}</div>
             </Grid>
 
             <Grid item xs={3}>
@@ -83,3 +94,10 @@ function App() {
 }
 
 export default App;
+
+
+/* logic
+    firstSumm = inputValue1 / json.data.rates.{валюта} // кол-во долларов за первую валюту
+    inputValue2 = firstSumm  * json.data.rates.{валюта2} //ответ                                   
+
+*/

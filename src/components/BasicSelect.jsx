@@ -4,6 +4,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import {allCoins, setAllCoins} from '../App.js'
 import '../index.css'
 
 //import { makeStyles } from '@mui/styles';
@@ -31,12 +32,14 @@ export default function BasicSelect() {
         <Select
           className="App-inputs"
         
-          value={age}
-          
+         value={allCoins[0]}
+          /*  {
+            coins.map( => <MenuItem value={name}>{name}</MenuItem>)
+          }  */
           onChange={handleChange}
         >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
+          
+          <MenuItem value={1}>{allCoins}</MenuItem>
           <MenuItem value={30}>Thirty</MenuItem>
         </Select>
       </FormControl>
