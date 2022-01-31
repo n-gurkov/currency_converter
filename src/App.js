@@ -13,21 +13,26 @@ import '@fontsource/roboto/400.css';
 
 
 
-function App() {
+function App(props) {
 
   const [value, setValue] = useState('Txt')
-  const [allCoins, setAllCoins] = useState([]);
-  export default allCoins;
+  const [allValues, setAllValues] = useState([]);
+  const [allKeys, setAllKeys] = useState([]);
+  
 
   useEffect(() => {
     axios.get('https://api.currencyfreaks.com/latest?apikey=f69289ef015844e9b512d536114acc62').then(({data}) =>{
-      const coins = data.rates;
-      console.log(coins);
-      setAllCoins(coins);
+      
+      const values = Object.values(data.rates);
+      const keys = Object.keys(data.rates);
+      //console.log(values);
+      //console.log(keys);
+      setAllValues(values);
+      setAllKeys(keys);
     })
   }, []);
 
-
+  //console.log({allValues})
   return (
   
     <Container className="root" maxWidth="sm">
@@ -52,15 +57,15 @@ function App() {
             </Grid>
 
             <Grid item xs={3.2}>
-              <BasicSelect/>
+              <BasicSelect items={allValues}/>
             </Grid>
 
             <Grid item xs={0.5}>
-              <div className="AppText2">в {allCoins[1]}</div>
+              <div className="AppText2">в {allKeys[0]}</div>
             </Grid>
 
             <Grid item xs={3}>
-              <BasicSelect/>
+              <div><BasicSelect items={allValues}/></div>       
             </Grid>
                 
             <Grid item xs={5}></Grid>
@@ -91,6 +96,8 @@ function App() {
       </Box>
     </Container>    
   );
+  console.log({allValues})
+ 
 }
 
 export default App;
