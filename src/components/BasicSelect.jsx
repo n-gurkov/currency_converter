@@ -4,26 +4,20 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+//import App from '../App'
 import '../index.css'
 
-//import { makeStyles } from '@mui/styles';
 
-/* const useStyles = makeStyles ({
-  appInputs: {
-    borderRadius: 0,
-     height: 35,
-    width: 150,
-    border: 1, 
-    },
-});  */
-export default function BasicSelect() {
+
+//App();
+export default function BasicSelect(props, items) {
   //const classes = useStyles();
   const [age, setAge] = React.useState('');
   
   const handleChange = (event) => {
     setAge(event.target.value);
   };
-
+  //console.log(this.items)
   return (
     <Box >
       <FormControl >
@@ -31,15 +25,18 @@ export default function BasicSelect() {
         <Select
           className="App-inputs"
         
-          value={age}
-          
+          value={this.props.items[0]}
           onChange={handleChange}
         >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
+          {
+            items.map(values =>  <MenuItem value = {values}>{values}</MenuItem>)
+          }
+          <MenuItem value = {1}>1</MenuItem>
           <MenuItem value={30}>Thirty</MenuItem>
         </Select>
       </FormControl>
     </Box>
+    
   );
+  
 }
