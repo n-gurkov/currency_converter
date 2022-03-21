@@ -4,35 +4,36 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-//import App from '../App'
 import '../index.css'
 
 
 
-//App();
-export default function BasicSelect(props, items) {
-  //const classes = useStyles();
-  const [age, setAge] = React.useState('');
-  
+
+export default function BasicSelect(props) {
+ 
+  const [rate, setRate] = React.useState('');
+  const items = props.items
+  const values = Object.values(items)
+  //const keys = Object.keys(items)
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setRate(event.target.value);
+    //console.log(event.target.value)
+   
   };
-  //console.log(this.items)
+ console.log(rate)
   return (
     <Box >
       <FormControl >
         <InputLabel id="demo-simple-select-label"></InputLabel>
         <Select
           className="App-inputs"
-        
-          value={this.props.items[0]}
           onChange={handleChange}
         >
           {
-            items.map(values =>  <MenuItem value = {values}>{values}</MenuItem>)
+           Object.keys(items).map(key =>  <MenuItem key={key} value = {items[key]}>{key}</MenuItem>)
           }
-          <MenuItem value = {1}>1</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+         {/*  <MenuItem value = {1}>{items[0]}</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem> */}
         </Select>
       </FormControl>
     </Box>

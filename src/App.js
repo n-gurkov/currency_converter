@@ -17,18 +17,17 @@ function App(props) {
 
   const [value, setValue] = useState('Txt')
   const [allValues, setAllValues] = useState([]);
-  const [allKeys, setAllKeys] = useState([]);
-  
+
 
   useEffect(() => {
     axios.get('https://api.currencyfreaks.com/latest?apikey=f69289ef015844e9b512d536114acc62').then(({data}) =>{
       
-      const values = Object.values(data.rates);
-      const keys = Object.keys(data.rates);
+      const values = data.rates;
+
       //console.log(values);
       //console.log(keys);
       setAllValues(values);
-      setAllKeys(keys);
+
     })
   }, []);
 
@@ -61,7 +60,7 @@ function App(props) {
             </Grid>
 
             <Grid item xs={0.5}>
-              <div className="AppText2">в {allKeys[0]}</div>
+              <div className="AppText2">в </div>
             </Grid>
 
             <Grid item xs={3}>
