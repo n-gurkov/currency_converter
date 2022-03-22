@@ -11,39 +11,39 @@ import '@fontsource/roboto/700.css';
 import '@fontsource/roboto/400.css';
 
 
-
-
 function App() {
   const [select1, setSelect1] = useState('')
   const [select2, setSelect2] = useState('')
   const [value1, setValue1] = useState('');
   const [value2, setValue2] = useState('');
-  
 
-  const [field, setField] = React.useState('');
   const counter = (event, flag) => {
-    console.log(flag)
     if (flag == true) {
       setValue1(event)
-      setValue2(event /select1 *select2)}
+      setValue2(event /select1 *select2)
+    }
     else {
       setValue2(event)
       setValue1(event /select2 *select1)
     }
     };
 
- // console.log(event);
+  const valuesChange = () =>{
+    setValue1(value2)
+    setValue2(value1)
+    setSelect2(select1)
+    setSelect1(select2)
+  }
 
   const [allValues, setAllValues] = useState([]);
 
   useEffect(() => {
     axios.get('https://api.currencyfreaks.com/latest?apikey=f69289ef015844e9b512d536114acc62').then(({data}) =>{     
       const values = data.rates;
-      console.log(data)
       setAllValues(values);
     })
   }, []);
-  //console.log({allValues})
+
   return (
   
     <Container className="root" maxWidth="sm">
@@ -66,7 +66,7 @@ function App() {
             </Grid>
 
             <Grid item xs={3.2}>
-              <BasicSelect items={allValues} setSelect = {setSelect1}/>
+              <BasicSelect items={allValues} setSelect = {setSelect1} value={select1}/>
             </Grid>
 
             <Grid item xs={0.5}>
@@ -74,7 +74,7 @@ function App() {
             </Grid>
 
             <Grid item xs={3}>
-              <div><BasicSelect items={allValues} setSelect = {setSelect2}/></div>       
+              <div><BasicSelect items={allValues} setSelect = {setSelect2} value={select2}/></div>       
             </Grid>
                 
             <Grid item xs={5}></Grid>
@@ -98,22 +98,15 @@ function App() {
             <Grid item xs={5}></Grid>
 
             <Grid item xs={7}>
-              <div className="App-bottom"><Button>поменять валюты местами</Button></div>
+              <div className="App-bottom"><Button onClick = {valuesChange} >поменять валюты местами</Button></div>
             </Grid>
           </Grid>
         </Grid>
       </Box>
     </Container>    
   );
-  console.log({allValues})
+
  
 }
 
 export default App;
-
-
-/* logic
-    firstSumm = inputValue1 / json.data.rates.{валюта} // кол-во долларов за первую валюту
-    inputValue2 = firstSumm  * json.data.rates.{валюта2} //ответ                                   
-
-*/
