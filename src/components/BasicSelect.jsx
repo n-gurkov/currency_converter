@@ -1,42 +1,30 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-//import App from '../App'
-import '../index.css'
+import * as React from "react";
+import Box from "@mui/material/Box";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import "../index.css";
 
-
-
-//App();
-export default function BasicSelect(props, items) {
-  //const classes = useStyles();
-  const [age, setAge] = React.useState('');
-  
+export default function BasicSelect(props) {
   const handleChange = (event) => {
-    setAge(event.target.value);
+    props.setSelect(event.target.value);
   };
-  //console.log(this.items)
+
   return (
-    <Box >
-      <FormControl >
-        <InputLabel id="demo-simple-select-label"></InputLabel>
+    <Box>
+      <FormControl>
         <Select
           className="App-inputs"
-        
-          value={this.props.items[0]}
           onChange={handleChange}
+          value={props.value}
         >
-          {
-            items.map(values =>  <MenuItem value = {values}>{values}</MenuItem>)
-          }
-          <MenuItem value = {1}>1</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          {Object.keys(props.items).map((key) => (
+            <MenuItem key={key} value={props.items[key]}>
+              {key}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
     </Box>
-    
   );
-  
 }
