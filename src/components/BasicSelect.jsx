@@ -11,16 +11,15 @@ import '../index.css'
 
 export default function BasicSelect(props) {
  
-  const [rate, setRate] = React.useState('');
   const items = props.items
   const values = Object.values(items)
   //const keys = Object.keys(items)
   const handleChange = (event) => {
-    setRate(event.target.value);
+    props.setSelect(event.target.value);
     //console.log(event.target.value)
    
   };
- console.log(rate)
+ //console.log(rate)
   return (
     <Box >
       <FormControl >
