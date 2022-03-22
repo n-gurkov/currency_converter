@@ -1,16 +1,14 @@
-import React from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import "../index.css";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
-export default function BasicTextFields(props) {
-  const handleChange = (event) => {
-    props.counter(event.target.value, props.flag);
-  };
+import '../index.css'
 
+export default function BasicTextFields() {
   return (
     <Box className="App-inputs">
-      <TextField onChange={handleChange} value={props.value} />
+
+      <TextField/>
     </Box>
   );
 }
