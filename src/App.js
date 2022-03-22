@@ -19,10 +19,10 @@ function App() {
   const counter = (event, flag) => {
     if (flag === true) {
       setValue1(event);
-      setValue2((event / select1) * select2);
+      setValue2(((event / select1) * select2).toFixed(4));
     } else {
       setValue2(event);
-      setValue1((event / select2) * select1);
+      setValue1(((event / select2) * select1).toFixed(4));
     }
   };
 
@@ -41,8 +41,7 @@ function App() {
         "https://api.currencyfreaks.com/latest?apikey=f69289ef015844e9b512d536114acc62"
       )
       .then(({ data }) => {
-        const values = data.rates;
-        setAllValues(values);
+        setAllValues(data.rates);
       });
   }, []);
 
@@ -74,19 +73,21 @@ function App() {
             </Grid>
 
             <Grid item xs={3}>
-              <div>
                 <BasicSelect
                   items={allValues}
                   setSelect={setSelect2}
                   value={select2}
                 />
-              </div>
             </Grid>
 
             <Grid item xs={5}></Grid>
 
             <Grid item xs={3.2}>
-              <BasicTextFields counter={counter} value={value1} flag={true} />
+              <BasicTextFields 
+                counter={counter} 
+                value={value1} 
+                flag={true} 
+              />
             </Grid>
 
             <Grid item xs={0.5}>
@@ -94,11 +95,15 @@ function App() {
             </Grid>
 
             <Grid item xs={3}>
-              <BasicTextFields counter={counter} value={value2} flag={false} />
+              <BasicTextFields 
+                counter={counter} 
+                value={value2} 
+                flag={false} 
+              />
             </Grid>
           </Grid>
 
-          <Grid container className="App-bottom">
+          <Grid container>
             <Grid item xs={5}></Grid>
 
             <Grid item xs={7}>

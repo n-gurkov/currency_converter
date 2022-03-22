@@ -6,7 +6,6 @@ import Select from "@mui/material/Select";
 import "../index.css";
 
 export default function BasicSelect(props) {
-  const items = props.items;
   const handleChange = (event) => {
     props.setSelect(event.target.value);
   };
@@ -19,8 +18,8 @@ export default function BasicSelect(props) {
           onChange={handleChange}
           value={props.value}
         >
-          {Object.keys(items).map((key) => (
-            <MenuItem key={key} value={items[key]}>
+          {Object.keys(props.items).map((key) => (
+            <MenuItem key={key} value={props.items[key]}>
               {key}
             </MenuItem>
           ))}
