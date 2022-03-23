@@ -2,7 +2,8 @@
     font-family: Roboto;
     font-size: 20px;
 }
-.AppHeader {
+
+.Header {
     display: flex;
     margin-right: 50px;
     font-size: 24px;
@@ -12,51 +13,36 @@
     margin-block: 30px;
 }
 
-
-.App-inputs  {
-    border-radius: 0 !important;
-    height: 35px !important;
+.CurrencySelect  {
+    border-radius: 0 ;
+    height: 35px;
     width: 150px;
-    padding: 0px  !important;
+    padding: 0px;
+    border: 1px solid;
+    background-color: white;
 }
 
-.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
-    height: 35px !important;
-    border-color:black !important;
-    padding: 0px  !important;
-    margin-left: 14px !important;
+.CurrencyInput {
+    border-radius: 0;
+    height: 34px;
+    width: 143px;
+    padding: 0px;
+    border: 1px solid;
+    padding-left: 5px;
+
 }
 
-.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root{
-    border-radius: 0 !important; 
-    border-color: black !important;
-}
-
-.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
-    border-color: black !important;
-} 
-
-.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
-    font-size: 20px !important;
-    text-transform: lowercase !important;
-    color: #0000005E !important;
-    text-decoration: underline 1px !important; 
-}
-
-.App-bottom {
+.SwapButton {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-}
-
-.AppText {
-    text-align: right;
-    margin-right: 5px;
+    text-decoration: underline 1px;
     font-size: 20px;
+    border: none;
+    background-color: white;
 }
 
-.AppText2 {
-    align-items: center;  
+.MainText {
     text-align: center;
     justify-content: center;
     vertical-align: middle;

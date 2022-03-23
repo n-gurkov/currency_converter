@@ -1,6 +1,5 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
 import "../index.css";
 
 export default function BasicTextFields(props) {
@@ -9,8 +8,8 @@ export default function BasicTextFields(props) {
   };
 
   return (
-    <Box className="App-inputs">
-      <TextField onChange={handleChange} value={props.value} />
+    <Box>
+      <input  className = "CurrencyInput" onChange={handleChange} value={props.value} />
     </Box>
   );
 }
