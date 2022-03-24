@@ -1,0 +1,50 @@
+.root{
+    font-family: Roboto;
+    font-size: 20px;
+}
+
+.Header {
+    display: flex;
+    margin-right: 50px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+    justify-content: center;
+    margin-block: 30px;
+}
+
+.CurrencySelect  {
+    border-radius: 0 ;
+    height: 35px;
+    width: 150px;
+    padding: 0px;
+    border: 1px solid;
+    background-color: white;
+}
+
+.CurrencyInput {
+    border-radius: 0;
+    height: 34px;
+    width: 143px;
+    padding: 0px;
+    border: 1px solid;
+    padding-left: 5px;
+
+}
+
+.SwapButton {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-decoration: underline 1px;
+    font-size: 20px;
+    border: none;
+    background-color: white;
+}
+
+.MainText {
+    text-align: center;
+    justify-content: center;
+    vertical-align: middle;
+    margin-block: 15px;
+}
